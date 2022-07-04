@@ -67,19 +67,19 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body text-body">
-                    <form>
+                    <form class="water-modal-form">
                         <label for="water-input">Container consumed:</label>
-                        <select name="water-input" id="water-input">
-                            <option value="my glass, 0.2L">Kronenbourg Glass</option>
-                            <option value="my glass, 0.4L">House Glass</option>
-                            <option value="my glass, 0.32L">Le Creuset Mug</option>
-                            <option value="my glass, 0.26L">House Mug</option>
+                        <select name="water-input" id="water-input" class="water-input">
+                            <option value="Kronenbourg glass, 0.2L">Kronenbourg Glass</option>
+                            <option value="House glass, 0.4L">House Glass</option>
+                            <option value="Le Creuset Mug, 0.32L">Le Creuset Mug</option>
+                            <option value="House Mug, 0.26L">House Mug</option>
                         </select>
                     </form>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Add</button>
+                    <button type="button" id="water-add" class="btn btn-primary">Add</button>
                 </div>
             </div>
         </div>
