@@ -2,10 +2,6 @@
 let waterAddButton = document.getElementById("water-add")
 waterAddButton.addEventListener('click', addWater);
 
-function test() {
-    alert("calling test() as expected");
-}
-
 function addWater(event) {
     // grab values of container, and add to waterArray
     let button = event.target;
@@ -34,16 +30,31 @@ function addWater(event) {
     cell4.innerHTML = "<button class=delete>Delete</button>";
 
     let deleteButtons = document.getElementsByClassName('delete');
-    // following lines of code only run inside the addWater function, not outside of it
+    // following lines of code only run inside the addWater(event) function, not outside of it.
+    // code below runs the number of times that delete is pressed
     for (let i = 0; i < deleteButtons.length; i++) {
         let button = deleteButtons[i];
-        button.addEventListener('click', deleteRow)
-        // button.addEventListener('click', test)
-        // deleteTandooriButtons[i].onclick = test;
+        button.addEventListener('click', deleteRow);
     }
     function deleteRow(event) {
         let buttonClicked = event.target;
         buttonClicked.parentElement.parentElement.remove();
-        updateBasketTotal();
+        updateTotalWater();
     }
+    updateTotalWater();
+}
+
+// calculate total water
+// function updateTotalWater() {
+//     let table = document.getElementById("consumed-table");
+//     let
+// }
+
+// calculate total water and fill total-water cell with value
+function updateTotalWater() {
+    let table = document.getElementById("consumed-table");
+    let subTotal = Array.from(table.rows).slice(1).reduce((total, row) => {
+        return total + parseFloat(row.cells[2].innerHTML.replace('L', ''));
+    }, 0);
+    document.getElementById("total-water").innerHTML = "<h2>" + subTotal.toFixed(1) + "L</h2>";
 }
