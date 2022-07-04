@@ -18,15 +18,11 @@ button {
 #consumed-table {
     box-sizing: border-box;
     display: block;
-    float: bottom;
     color: lightgrey;
-    width: 50%;
 }
 
 #stats-table {
     box-sizing: border-box;
     display: block;
-    float: right;
     color: lightgrey;
-    width: 20%;
 }
