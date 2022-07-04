@@ -22,68 +22,93 @@
 
 <body>
 
-<h1>Fruit/Veg, and Water Tracker</h1>
+    <h1>Fruit/Veg, and Water Tracker</h1>
 
-<!-- Button trigger modal -->
-<button id="fruit-modal-button" type="button" class="btn btn-secondary fa-solid fa-apple-whole" data-bs-toggle="modal" data-bs-target="#fruit-modal">
-    Add fruit/veg
-</button>
+    <!-- Button trigger modal -->
+    <button id="fruit-modal-button" type="button" class="btn btn-secondary fa-solid fa-apple-whole" data-bs-toggle="modal" data-bs-target="#fruit-modal">
+        Add fruit/veg
+    </button>
 
-<!-- Modal -->
-<!--    added 'text-body' class on lines 38, and 41 in order for text to appear in modal heading, and body-->
-<div class="modal fade" id="fruit-modal" tabindex="-1" aria-labelledby="modal-label" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title text-body" id="fruit-modal-label">Add Fruit/Veg</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body text-body">
-                <form>
-                    <label for="fruit-input">Fruit eaten:</label>
-                    <input id="fruit-input" type="text">
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Add</button>
+    <!-- Modal -->
+    <!--    added 'text-body' class on lines 38, and 41 in order for text to appear in modal heading, and body-->
+    <div class="modal fade" id="fruit-modal" tabindex="-1" aria-labelledby="modal-label" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-body" id="fruit-modal-label">Add Fruit/Veg</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-body">
+                    <form>
+                        <label for="fruit-input">Fruit eaten:</label>
+                        <input id="fruit-input" type="text">
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Add</button>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
-<!-- Button trigger modal -->
-<button id="water-modal-button" type="button" class="btn btn-secondary fa-solid fa-faucet-drip" data-bs-toggle="modal" data-bs-target="#water-modal">
-    Add water
-</button>
+    <!-- Button trigger modal -->
+    <button id="water-modal-button" type="button" class="btn btn-secondary fa-solid fa-faucet-drip" data-bs-toggle="modal" data-bs-target="#water-modal">
+        Add water
+    </button>
 
-<!-- Modal -->
-<!--    added 'text-body' class on lines 66, and 69 in order for text to appear in modal heading, and body-->
-<div class="modal fade" id="water-modal" tabindex="-1" aria-labelledby="modal-label" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title text-body" id="water-modal-label">Add Water</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body text-body">
-                <form>
-                    <label for="water-input">Container consumed:</label>
-                    <select name="water-input" id="water-input">
-                        <option value="my glass, 0.2L">Kronenbourg Glass</option>
-                        <option value="my glass, 0.4L">House Glass</option>
-                        <option value="my glass, 0.32L">Le Creuset Mug</option>
-                        <option value="my glass, 0.26L">House Mug</option>
-                    </select>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Add</button>
+    <!-- Modal -->
+    <!--    added 'text-body' class on lines 66, and 69 in order for text to appear in modal heading, and body-->
+    <div class="modal fade" id="water-modal" tabindex="-1" aria-labelledby="modal-label" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-body" id="water-modal-label">Add Water</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-body">
+                    <form>
+                        <label for="water-input">Container consumed:</label>
+                        <select name="water-input" id="water-input">
+                            <option value="my glass, 0.2L">Kronenbourg Glass</option>
+                            <option value="my glass, 0.4L">House Glass</option>
+                            <option value="my glass, 0.32L">Le Creuset Mug</option>
+                            <option value="my glass, 0.26L">House Mug</option>
+                        </select>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Add</button>
+                </div>
             </div>
         </div>
     </div>
-</div>
+
+    <br><br>
+
+    <div class="row">
+        <table id="consumed-table" class="col-md-6">
+            <tr>
+                <!--            creates a tick symbol-->
+                <!--            <td>&#10004;</td>-->
+                <th>Water</th>
+                <th>Fruit/Veg</th>
+                <th>Volume</th>
+                <th>Delete</th>
+            </tr>
+        </table>
+        <table id="stats-table" class="col-md-6">
+            <tr>
+                <th>Fruit/Veg Portions</th>
+                <th>Water Consumed</th>
+            </tr>
+            <tr>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        </table>
+    </div>
 
 <!--    link to bootstrap CDN-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>

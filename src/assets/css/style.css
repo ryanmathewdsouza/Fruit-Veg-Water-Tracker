@@ -7,3 +7,31 @@ h1 {
 body {
     background-color: #282828 !important;
 }
+
+button {
+    display: block;
+    float: left;
+    margin-bottom: 5%;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+#consumed-table {
+    box-sizing: border-box;
+    display: block;
+    float: bottom;
+    color: lightgrey;
+    width: 50%;
+}
+
+#stats-table {
+    /*position: relative;*/
+    /*top: -50%;*/
+    box-sizing: border-box;
+    display: block;
+    float: right;
+    color: lightgrey;
+    width: 20%;
+}
