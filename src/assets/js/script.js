@@ -50,5 +50,9 @@ function updateTotalWater() {
     let subTotal = Array.from(table.rows).slice(1).reduce((total, row) => {
         return total + parseFloat(row.cells[2].innerHTML.replace('L', ''));
     }, 0);
-    document.getElementById("total-water").innerHTML = "<h2>" + subTotal.toFixed(1) + "L</h2>";
+    let totalWater = document.getElementById("total-water");
+    totalWater.innerHTML = "<h2>" + subTotal.toFixed(2) + "L</h2>";
+    if (totalWater.innerHTML === "<h2>0.00L</h2>") {
+        totalWater.innerHTML = "<h2>0L</h2>";
+    }
 }
