@@ -1,6 +1,6 @@
-// add event listener to water-add button
-let waterAddButton = document.getElementById("water-add")
-waterAddButton.addEventListener('click', addWater);
+// add event listener to add-water button
+let addWaterButton = document.getElementById("add-water");
+addWaterButton.addEventListener('click', addWater);
 
 function addWater(event) {
     // grab values of container, and add to waterArray
