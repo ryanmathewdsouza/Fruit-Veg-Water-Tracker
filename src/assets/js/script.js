@@ -44,12 +44,6 @@ function addWater(event) {
     updateTotalWater();
 }
 
-// calculate total water
-// function updateTotalWater() {
-//     let table = document.getElementById("consumed-table");
-//     let
-// }
-
 // calculate total water and fill total-water cell with value
 function updateTotalWater() {
     let table = document.getElementById("consumed-table");
