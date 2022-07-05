@@ -12,8 +12,9 @@ function addWater(event) {
     let waterArray = waterInput.value.split(",");
 
     let table = document.getElementById("consumed-table");
-    // add row to table and insert cells
+    // add row to table, with class of "waterRow" and insert cells
     let row = table.insertRow(-1);
+    row.classList.add("waterRow");
     let cell1 = row.insertCell(0);
     let cell2 = row.insertCell(1);
     let cell3 = row.insertCell(2);
@@ -44,10 +45,10 @@ function addWater(event) {
     updateTotalWater();
 }
 
-// calculate total water and fill total-water cell with value
+// calculate total water just from "waterRow" cells and fill total-water cell with value
 function updateTotalWater() {
-    let table = document.getElementById("consumed-table");
-    let subTotal = Array.from(table.rows).slice(1).reduce((total, row) => {
+    let waterRows = document.getElementsByClassName("waterRow");
+    let subTotal = Array.from(waterRows).slice(1).reduce((total, row) => {
         return total + parseFloat(row.cells[2].innerHTML.replace('L', ''));
     }, 0);
     let totalWater = document.getElementById("total-water");
@@ -55,4 +56,59 @@ function updateTotalWater() {
     if (totalWater.innerHTML === "<h2>0.00L</h2>") {
         totalWater.innerHTML = "<h2>0L</h2>";
     }
+}
+
+// add event listener to add-fruit button
+let addFruitButton = document.getElementById("add-fruit");
+addFruitButton.addEventListener('click', addFruit);
+
+
+function addFruit(event) {
+    // grab name of fruit, and add to value of fruitInput
+    let button = event.target;
+    let modalContent = button.parentElement.parentElement;
+    let modalBody = modalContent.getElementsByClassName("modal-body")[0];
+    let fruitModalForm = modalBody.getElementsByClassName("fruit-modal-form")[0];
+    let fruitInput = fruitModalForm.getElementsByClassName("fruit-input")[0];
+
+    let table = document.getElementById("consumed-table");
+    // add row to table with class "fruitRow" and insert cells
+    let row = table.insertRow(-1);
+    row.classList.add("fruitRow");
+    let cell1 = row.insertCell(0);
+    let cell2 = row.insertCell(1);
+    let cell3 = row.insertCell(2);
+    let cell4 = row.insertCell(3);
+
+    // assign values to empty cells
+    // fill cell with name of fruit
+    cell1.innerHTML = fruitInput.value;
+    // fill cell with "N/A"
+    cell2.innerHTML = "N/A";
+    // fill cell with "N/A"
+    cell3.innerHTML = "N/A";
+    // fill cell with delete button
+    cell4.innerHTML = "<button class=delete>Delete</button>";
+
+    let deleteButtons = document.getElementsByClassName('delete');
+    // following lines of code only run inside the addFruit(event) function, not outside of it.
+    // code below runs the number of times that delete is pressed
+    for (let i = 0; i < deleteButtons.length; i++) {
+        let button = deleteButtons[i];
+        button.addEventListener('click', deleteRow);
+    }
+    function deleteRow(event) {
+        let buttonClicked = event.target;
+        buttonClicked.parentElement.parentElement.remove();
+        updateTotalFruit();
+    }
+    updateTotalFruit();
+}
+
+// count number of fruitRows and fill total-fruit cell with value
+function updateTotalFruit() {
+    let table = document.getElementById("consumed-table");
+    let fruitRows = table.getElementsByClassName("fruitRow");
+    let totalFruit = document.getElementById("total-fruit");
+    totalFruit.innerHTML = "<h2>" + fruitRows.length + "</h2>";
 }

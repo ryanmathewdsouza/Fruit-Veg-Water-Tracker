@@ -39,14 +39,14 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body text-body">
-                    <form>
+                    <form class="fruit-modal-form">
                         <label for="fruit-input">Fruit eaten:</label>
-                        <input id="fruit-input" type="text">
+                        <input id="fruit-input" class="fruit-input" type="text">
                     </form>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Add</button>
+                    <button type="button" id="add-fruit" class="btn btn-primary">Add</button>
                 </div>
             </div>
         </div>
@@ -89,7 +89,7 @@
 
     <div class="row">
         <table id="consumed-table" class="col-md-6 w-50">
-            <tr>
+            <tr class="waterRow">
                 <!--            creates a tick symbol-->
                 <!--            <td>&#10004;</td>-->
                 <th>Fruit/Veg &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
