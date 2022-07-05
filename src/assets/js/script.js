@@ -56,6 +56,7 @@ function updateTotalWater() {
     if (totalWater.innerHTML === "<h2>0.00L</h2>") {
         totalWater.innerHTML = "<h2>0L</h2>";
     }
+    greenOrRed();
 }
 
 // add event listener to add-fruit button
@@ -111,4 +112,22 @@ function updateTotalFruit() {
     let fruitRows = table.getElementsByClassName("fruitRow");
     let totalFruit = document.getElementById("total-fruit");
     totalFruit.innerHTML = "<h2>" + fruitRows.length + "</h2>";
+    greenOrRed();
+}
+
+greenOrRed();
+
+function greenOrRed() {
+    let fruitValue = document.getElementById("total-fruit");
+    if (fruitValue.innerText < 5) {
+        fruitValue.style.background = "red";
+    } else {
+        fruitValue.style.background = "green";
+    }
+    let waterValue = document.getElementById("total-water");
+    if (waterValue.innerText[0] < 2) {
+        waterValue.style.background = "red";
+    } else {
+        waterValue.style.background = "green";
+    }
 }
