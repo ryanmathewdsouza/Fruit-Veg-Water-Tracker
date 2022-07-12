@@ -1,4 +1,7 @@
 // loadFruit();
+
+localStorage.setItem('fruitNumber', "0");
+
 let testButton = document.getElementById("test-button");
 testButton.addEventListener('click', loadFruit);
 
@@ -80,6 +83,7 @@ function addFruit(event) {
     // add row to table with class "fruitRow" and insert cells
     let row = table.insertRow(-1);
     row.classList.add("fruitRow");
+    row.setAttribute("id", ("fruitNo" + localStorage.getItem("fruitNumber")));
     let cell1 = row.insertCell(0);
     let cell2 = row.insertCell(1);
     let cell3 = row.insertCell(2);
@@ -108,7 +112,7 @@ function addFruit(event) {
         button.addEventListener('click', deleteRow);
     }
     function deleteRow(event) {
-        alert("deleteRow() entered");
+        // alert("deleteRow() entered");
         let buttonClicked = event.target;
         buttonClicked.parentElement.parentElement.remove();
         updateTotalFruit();
@@ -133,7 +137,7 @@ function saveFruit(event) {
     localStorage.setItem('fruitNo'+ localStorage.getItem("fruitNumber"), fruitInput.value);
     // for each iteration through fruit rows, save fruit to localstorage under name of ith-fruit
     // alert(localStorage.getItem("fruitNo" + fruitNumber));
-    localStorage.setItem("fruitNumber", localStorage.getItem("fruitNumber") + 1);
+    localStorage.setItem('fruitNumber', (parseInt(localStorage.getItem("fruitNumber")) + 1).toString());
     // fruitNumber++;
 }
 
@@ -176,12 +180,15 @@ function loadFruit() {
         if (loadedFruit == null) {
             break;
         }
-        alert(loadedFruit);
+        // alert(loadedFruit);
 
         let table = document.getElementById("consumed-table");
         // add row to table with class "fruitRow" and insert cells
         let row = table.insertRow(-1);
         row.classList.add("fruitRow");
+        // row.setAttribute("id", ("fruitNo" + localStorage.getItem("fruitNumber")));
+        row.setAttribute("id", ("fruitNo" + i));
+        // row.setAttribute("id", "test");
         let cell1 = row.insertCell(0);
         let cell2 = row.insertCell(1);
         let cell3 = row.insertCell(2);
@@ -212,7 +219,12 @@ function loadFruit() {
     function deleteRow(event) {
         let buttonClicked = event.target;
         buttonClicked.parentElement.parentElement.remove();
+        let rowForDeletion = buttonClicked.parentElement.parentElement.id;
         updateTotalFruit();
+        // alert(rowForDeletion);
+        // alert("fruitNumber: " + localStorage.getItem("fruitNumber"));
+        localStorage.setItem('fruitNumber', (parseInt(localStorage.getItem("fruitNumber")) - 1).toString());
+        localStorage.removeItem(rowForDeletion);
     }
     // alert("updateTotalFruit() should run next");
     updateTotalFruit()
