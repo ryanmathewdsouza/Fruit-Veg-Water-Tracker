@@ -1,7 +1,7 @@
 let rows = document.getElementsByClassName("itemRow");
 
-let testButton = document.getElementById("test-button");
-testButton.addEventListener('click', store);
+// let testButton = document.getElementById("test-button");
+// testButton.addEventListener('click', store);
 
 // add event listener to add-water button
 let addWaterButton = document.getElementById("add-water");
@@ -14,7 +14,9 @@ addFruitButton.addEventListener('click', addFood);
 createTable(read());
 
 function read() {
-    let json = localStorage.getItem("items");
+    let json = localStorage.getItem("food/drink");
+    console.log("check if running");
+    console.log(json);
     if (json === null) {
         return [];
     } else {
@@ -29,7 +31,8 @@ function read() {
 function store(dataToBeStored) {
     // alert("hello");
     let stringify = JSON.stringify(dataToBeStored);
-    localStorage.setItem("items", stringify);
+    localStorage.setItem("food/drink", stringify);
+    // alert(localStorage.getItem("food/drink"));
     // rows.forEach(addToLocalStorage);
     // let itemToStore = JSON.stringify("lemon");
     // localStorage.setItem("items", itemToStore);
