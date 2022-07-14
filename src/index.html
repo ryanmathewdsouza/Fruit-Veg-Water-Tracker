@@ -72,10 +72,10 @@
                     <form class="water-modal-form">
                         <label for="water-input">Container consumed:</label>
                         <select name="water-input" id="water-input" class="water-input">
-                            <option value="Kronenbourg glass, 0.2L">Kronenbourg Glass</option>
-                            <option value="House glass, 0.4L">House Glass</option>
-                            <option value="Le Creuset Mug, 0.32L">Le Creuset Mug</option>
-                            <option value="House Mug, 0.26L">House Mug</option>
+                            <option value="Kronenbourg glass, 0.2">Kronenbourg Glass</option>
+                            <option value="House glass, 0.4">House Glass</option>
+                            <option value="Le Creuset Mug, 0.32">Le Creuset Mug</option>
+                            <option value="House Mug, 0.26">House Mug</option>
                         </select>
                     </form>
                 </div>
@@ -91,14 +91,17 @@
 
     <div class="row">
         <table id="consumed-table" class="col-md-6 w-50">
-            <tr class="waterRow">
-                <!--            creates a tick symbol-->
-                <!--            <td>&#10004;</td>-->
-                <th>Fruit/Veg &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
-                <th>Water &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
-                <th>Volume &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
-                <th>Delete &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
-            </tr>
+            <thead>
+                <tr class="waterRow">
+                    <!--            creates a tick symbol-->
+                    <!--            <td>&#10004;</td>-->
+                    <th>Fruit/Veg &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+                    <th>Water &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+                    <th>Volume &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+                    <th>Delete &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+                </tr>
+            </thead>
+            <tbody id="tbody"></tbody>
         </table>
         <table id="stats-table" class="col-md-6 w-50">
             <tr>
@@ -115,7 +118,8 @@
 <!--    link to bootstrap CDN-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 <!--    link to external script.js file-->
-    <script type="module" src="./assets/js/script.js"></script>
+    <script type="module" src="./assets/js/new.js"></script>
+<!--    <script type="module" src="./assets/js/script.js"></script>-->
 
 </body>
 </html>
