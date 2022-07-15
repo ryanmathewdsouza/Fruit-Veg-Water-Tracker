@@ -3,8 +3,17 @@ let waterCount;
 
 let rows = document.getElementsByClassName("itemRow");
 
-// let testButton = document.getElementById("test-button");
-// testButton.addEventListener('click', store);
+let clearButton = document.getElementById("clear-button");
+clearButton.addEventListener('click', clearTable);
+
+function clearTable() {
+    // delete anything already in the table
+    let table = document.getElementById("consumed-table");
+    let tBody = table.querySelector("tbody");
+    tBody.innerHTML = "";
+    localStorage.removeItem("food/drink");
+    createTable(read());
+}
 
 // add event listener to add-water button
 let addWaterButton = document.getElementById("add-water");
@@ -121,7 +130,7 @@ function updateTotals(itemsToSave) {
     if (totalWater.innerHTML === "<h2>0.00L</h2>") {
         totalWater.innerHTML = "<h2>0L</h2>";
     }
-    alert(waterCount);
+    // alert(waterCount);
     let totalFood = document.getElementById("total-fruit");
     totalFood.innerHTML = "<h2>" + foodCount + "</h2>";
     // alert(foodCount);
@@ -137,10 +146,10 @@ function updateTotals(itemsToSave) {
     let waterValue = document.getElementById("total-water");
     if (waterCount < 1.99) {
         waterValue.style.background = "red";
-        alert("waterCount less than 2");
+        // alert("waterCount less than 2");
     } else {
         waterValue.style.background = "green";
-        alert("waterCount equal to, or more than 2");
+        // alert("waterCount equal to, or more than 2");
     }
 }
 
