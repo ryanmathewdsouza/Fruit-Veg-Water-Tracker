@@ -1,3 +1,6 @@
+let foodCount;
+let waterCount;
+
 let rows = document.getElementsByClassName("itemRow");
 
 // let testButton = document.getElementById("test-button");
@@ -88,6 +91,7 @@ function createTable(itemsToSave) {
         function deleteRow(event) {
             itemsToSave.splice(index, 1);
             createTable(itemsToSave);
+            greenOrRed();
         }
 
 
@@ -96,13 +100,13 @@ function createTable(itemsToSave) {
     // call store() to save to local storage
     store(itemsToSave);
 
-    greenOrRed();
     updateTotals(itemsToSave);
+    greenOrRed();
 }
 
 // calculate total water just from "waterRow" cells and fill total-water cell with value
 function updateTotals(itemsToSave) {
-    let waterRows = document.getElementsByClassName("waterRow");
+    // let waterRows = document.getElementsByClassName("waterRow");
     let foodCount = 0;
     let waterCount = 0;
     itemsToSave.forEach(item => {
@@ -117,24 +121,26 @@ function updateTotals(itemsToSave) {
     if (totalWater.innerHTML === "<h2>0.00L</h2>") {
         totalWater.innerHTML = "<h2>0L</h2>";
     }
+    alert(waterCount);
     let totalFood = document.getElementById("total-fruit");
     totalFood.innerHTML = "<h2>" + foodCount + "</h2>";
-}
+    // alert(foodCount);
 
-greenOrRed();
-
-function greenOrRed() {
     let fruitValue = document.getElementById("total-fruit");
-    if (fruitValue.innerText < 5) {
+    if (foodCount < 5) {
         fruitValue.style.background = "red";
+        // alert("foodCount less than 5");
     } else {
         fruitValue.style.background = "green";
+        // alert("foodCount equal to, or more than 5");
     }
     let waterValue = document.getElementById("total-water");
-    if (waterValue.innerText[0] < 2) {
+    if (waterCount < 1.99) {
         waterValue.style.background = "red";
+        alert("waterCount less than 2");
     } else {
         waterValue.style.background = "green";
+        alert("waterCount equal to, or more than 2");
     }
 }
 
